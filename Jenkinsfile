@@ -20,7 +20,7 @@ pipeline {
 
         stage("Deploy"){
             steps{
-                bat "docker run -d --network_mode=host -p 8080:8080 --name demo-container docker-demo"
+                bat "docker run -d -p 8080:8080 --name demo-container docker-demo"
             }
         }
     }
