@@ -20,7 +20,7 @@ pipeline {
 
         stage("Deploy"){
             steps{
-                bat "docker run -d -p 8080:8080 --name demo-container docker-demo"
+                bat "docker run -d -p 8080:8080 --add-host DB_ALIAS:127.0.0.1 --name demo-container docker-demo"
             }
         }
     }
