@@ -20,7 +20,6 @@ pipeline {
 
         stage("Deploy"){
             steps{
-                sh "chmod +x docker-compose"
                 sh "docker-compose -f docker-compose.yml up -d "
             }
         }
