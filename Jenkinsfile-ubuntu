@@ -4,9 +4,7 @@ pipeline {
     stages {
         stage('Clean and clone repository') {
             steps {
-                sudo sh 'chmod +x gradlew'
-                sudo sh 'chmod +x docker-compose'
-                sh 'docker-compose -f docker-compose.yml down || exit 0;'
+                sh "docker-compose -f docker-compose.yml down || exit 0;"
                 // Get some code from a GitHub repository
                 git branch: 'main', url: 'https://github.com/balanalex12/docker-demo.git'
 
@@ -15,13 +13,13 @@ pipeline {
 
         stage("Build"){
             steps{
-                  sh './gradlew clean build'
+                sh "./gradlew clean build"
             }
         }
 
         stage("Deploy"){
             steps{
-                sh 'docker-compose -f docker-compose.yml up -d '
+                sh "docker-compose -f docker-compose.yml up -d "
             }
         }
     }
