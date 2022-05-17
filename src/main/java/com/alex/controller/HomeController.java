@@ -8,12 +8,12 @@ public class HomeController {
 
     @GetMapping("/home")
     public String home(){
-        return "Salut!";
+        return "Salut salut!";
     }
 
     @GetMapping("hello")
     public String hello() {
-        return "Helloo !";
+        return "Hello hello !";
     }
 
 }
