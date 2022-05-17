@@ -4,8 +4,7 @@ pipeline {
     stages {
         stage('Clean and clone repository') {
             steps {
-                bat "docker-compose -f docker-compose.yml down --remove-orphans || exit 0;"
-                bat "docker rmi person-app || exit 0;"
+                bat "docker-compose -f docker-compose.yml down --remove-orphans || docker rmi person-app || exit 0;"
                 // Get some code from a GitHub repository
                 git branch: 'main', url: 'https://github.com/balanalex12/docker-demo.git'
 
