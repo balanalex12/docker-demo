@@ -1,14 +1,5 @@
 version: '3.1'
 services:
-  person-app:
-    container_name: person-app
-    image: person-app
-    build: ./
-    ports:
-      - "8080:8080"
-    depends_on:
-      - postgres
-
   postgres:
     image: postgres
     container_name: postgres
@@ -18,3 +9,11 @@ services:
       - POSTGRES_PASSWORD=admin
       - POSTGRES_USER=postgres
       - POSTGRES_DB=demo
+  person-app:
+    container_name: person-app
+    image: person-app
+    build: ./
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
